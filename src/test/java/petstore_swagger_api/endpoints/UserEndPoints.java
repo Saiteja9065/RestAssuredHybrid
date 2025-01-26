@@ -26,7 +26,7 @@ public class UserEndPoints {
         return response;
     }
 
-    public static Response updateUser(String username, User payload){
+    public static Response updateUser(String username, UserData payload){
         Response response = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
