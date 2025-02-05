@@ -1,20 +1,26 @@
 package petstore_swagger_api.endpoints;
 
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import petstore_swagger_api.payload.UserData;
 
+import java.util.ResourceBundle;
+
 import static io.restassured.RestAssured.given;
 
-public class UserEndPoints {
+public class UserEndPointsTwo {
+
+    static ResourceBundle getURL(){
+        ResourceBundle routes = ResourceBundle.getBundle("routes");
+        return routes;
+    }
     public static Response createUser(UserData userPayload){
         Response response = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body(userPayload)
                 .when()
-                .post(Routes.createUserUrl);
+                .post(getURL().getString("post_url"));
         return response;
     }
 
@@ -22,7 +28,7 @@ public class UserEndPoints {
         Response response = given()
                 .pathParam("username", username)
                 .when()
-                .get(Routes.getUserUrl);
+                .get(getURL().getString("get_url"));
         return response;
     }
 
@@ -33,7 +39,7 @@ public class UserEndPoints {
                 .pathParam("username", username)
                 .body(userPayload)
                 .when()
-                .put(Routes.updateUserUrl);
+                .put(getURL().getString("put_url"));
         return response;
     }
 
@@ -41,7 +47,7 @@ public class UserEndPoints {
         Response response = given()
                 .pathParam("username", username)
                 .when()
-                .delete(Routes.deleteUserUrl);
+                .delete(getURL().getString("delete_url"));
         return response;
     }
 }

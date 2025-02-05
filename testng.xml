@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RestAssuredHybrid">
+    <test name="RestAssuredHybrid">
+        <classes>
+            <class name="petstore_swagger_api.test.UserTests"/>
+            <class name="petstore_swagger_api.test.DDTests"/>
+            <class name="petstore_swagger_api.test.UserTestsTwo"/>
+        </classes>
+    </test>
+</suite>
